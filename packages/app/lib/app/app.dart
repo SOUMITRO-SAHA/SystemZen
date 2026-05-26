@@ -13,8 +13,6 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final brightness = View.of(context).platformDispatcher.platformBrightness;
-
     // Use with Google Fonts package to use downloadable fonts
     TextTheme textTheme = createTextTheme(context, "DM Sans", "Manrope");
 
@@ -22,7 +20,9 @@ class App extends StatelessWidget {
 
     return MaterialApp(
       title: 'SystemZen',
-      theme: brightness == Brightness.light ? theme.light() : theme.dark(),
+      themeMode: ThemeMode.dark,
+      theme: theme.light(),
+      darkTheme: theme.dark(),
       debugShowCheckedModeBanner: false,
       home: const Scaffold(
         appBar: GlobalAppBar(title: 'SystemZen'),

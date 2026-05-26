@@ -16,6 +16,7 @@ class App extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
+      debugShowCheckedModeBanner: false,
       home: const Scaffold(
         appBar: GlobalAppBar(title: 'SystemZen'),
         body: HomePage(),

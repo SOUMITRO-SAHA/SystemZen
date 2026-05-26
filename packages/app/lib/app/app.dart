@@ -1,4 +1,6 @@
 import 'package:app/app/screens/home.dart';
+import 'package:app/shared/theme/themes/default.dart';
+import 'package:app/shared/utils/util.dart';
 import 'package:app/shared/widgets/common/common.dart';
 import 'package:flutter/material.dart';
 
@@ -11,11 +13,16 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final brightness = View.of(context).platformDispatcher.platformBrightness;
+
+    // Use with Google Fonts package to use downloadable fonts
+    TextTheme textTheme = createTextTheme(context, "DM Sans", "Manrope");
+
+    MaterialTheme theme = MaterialTheme(textTheme);
+
     return MaterialApp(
       title: 'SystemZen',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
+      theme: brightness == Brightness.light ? theme.light() : theme.dark(),
       debugShowCheckedModeBanner: false,
       home: const Scaffold(
         appBar: GlobalAppBar(title: 'SystemZen'),
